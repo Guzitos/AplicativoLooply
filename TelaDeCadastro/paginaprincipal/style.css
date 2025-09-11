@@ -52,8 +52,29 @@ a{
     background-color: rgb(156, 156, 156);
     
 }
-.botoes>.BotaoPrevisao:hover{
-    p{
-        transition: 0.5s;
+.botoes>.BotaoConversor:hover{
+    a{
+       color: rgba(255, 255, 255, 0); 
     }
+    background-image: url(../imagens/logo\ \(1\).png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+    background-color: rgb(156, 156, 156);
+    box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.438);
+    
+}
+.botoes>.BotaoPrevisao:hover{
+    a{
+       color: rgba(255, 255, 255, 0); 
+    }
+    background-image: url(../imagens/3d-sun-and-cloud-white-3d-weather-element-png.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+    background-color: rgb(128, 128, 128);
+    box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.438);
+    
 }

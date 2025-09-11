@@ -4,40 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style2.css">
-  <title>Conversor de Moeda</title>
+  <title>Document</title>
 </head>
 <body>
-
   <div class="container">
-    <div class="title">Taxa de câmbio comercial</div>
-    <div class="exchange-rate">1 USD = 5,41 BRL</div>
-    
-    <input type="number" id="amount" placeholder="Quantia" min="1" step="0.01">
-    
-    <div>
-      <select id="currencyFrom">
-        <option value="USD">USD</option>
-      </select>
-      <span>para</span>
-      <select id="currencyTo">
-        <option value="BRL">BRL</option>
-      </select>
-    </div>
+  <div class="title">Taxa de câmbio comercial</div>
+  <div class="exchange-rate" id="exchange-rate">Carregando taxa...</div>
 
-    <input type="text" id="result" placeholder="Resultado" disabled>
+  <input type="number" id="quantia" placeholder="Quantia" min="1" step="0.01" />
 
-    <button class="btn" onclick="convertCurrency()">Enviar dinheiro</button>
+  <div>
+    <select id="moedaDe">
+      <option value="USD">USD</option>
+      <option value="BRL">BRL</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+    </select>
+
+    <span class="para"> para </span>
+
+    <select id="moedaPara">
+      <option value="BRL">BRL</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+    </select>
   </div>
 
-  <script>
-    const exchangeRate = 5.41;
+  <input type="text" id="result" placeholder="Resultado" disabled />
 
-    function convertCurrency() {
-      const amount = document.getElementById("amount").value;
-      const result = (amount * exchangeRate).toFixed(2);
-      document.getElementById("result").value = result + " BRL";
-    }
-  </script>
+  <button class="btn" onclick="converter()">Enviar dinheiro</button>
+</div>
+<script src="script.js"></script>
 
 </body>
 </html>
