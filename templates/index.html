@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Moedas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Conversor de Moedas</h1>
+
+    <form method="POST">
+      <input type="number" name="quantia" placeholder="Quantia" min="1" step="0.01" value="{{ quantia or '' }}" required>
+
+      <div>
+        <select name="moedaDe">
+          <option value="USD" {% if moedaDe == 'USD' %}selected{% endif %}>USD</option>
+          <option value="BRL" {% if moedaDe == 'BRL' %}selected{% endif %}>BRL</option>
+          <option value="EUR" {% if moedaDe == 'EUR' %}selected{% endif %}>EUR</option>
+          <option value="GBP" {% if moedaDe == 'GBP' %}selected{% endif %}>GBP</option>
+        </select>
+
+        <span class="para"> para </span>
+
+        <select name="moedaPara">
+          <option value="BRL" {% if moedaPara == 'BRL' %}selected{% endif %}>BRL</option>
+          <option value="USD" {% if moedaPara == 'USD' %}selected{% endif %}>USD</option>
+          <option value="EUR" {% if moedaPara == 'EUR' %}selected{% endif %}>EUR</option>
+          <option value="GBP" {% if moedaPara == 'GBP' %}selected{% endif %}>GBP</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn">Enviar dinheiro</button>
+    </form>
+
+    {% if resultado is not none %}
+      <div class="resultado">
+        <p><strong>Taxa de câmbio:</strong> 1 {{ moedaDe }} = {{ '%.4f' | format(taxa) }} {{ moedaPara }}</p>
+        <p><strong>Resultado:</strong> {{ quantia }} {{ moedaDe }} = {{ '%.2f' | format(resultado) }} {{ moedaPara }}</p>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
