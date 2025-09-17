@@ -8,17 +8,15 @@
 </head>
 <body>
   <div class="container">
-    <!-- Exemplo: botão para rota home (se tiver outra página, ajuste aqui) -->
     <button class="btn">
-      <a href="{{ url_for('tempo') }}">
-        <img src="{{ url_for('static', filename='scripts/imagens/3d-sun-and-cloud-white-3d-weather-element-png.png') }}" width="50px">
+      <a href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='/imagens/img_sol.png') }}" width="50px">
       </a>
     </button>
 
-    <!-- Botão para rota /conversao -->
     <button class="btn">
       <a href="{{ url_for('conversao') }}">
-        <img src="{{ url_for('static', filename='scripts/imagens/logo (1).png') }}" width="50px">
+        <img src="{{ url_for('static', filename='/imagens/img_conversao.png') }}" width="50px">
       </a>
     </button>
   </div>

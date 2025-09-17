@@ -104,6 +104,7 @@ def conversao():
         chave = f'{moedaDe}{moedaPara}'
         taxa = float(dados[chave]['bid'])
         resultado = quantia * taxa
+        resultado = round(resultado, 2)
 
     return render_template(
         'pagina-conversao.html',
@@ -113,7 +114,6 @@ def conversao():
         moedaPara=moedaPara,
         quantia=quantia
     )
-
 
 if __name__ == '__main__':
     app.run(debug=True)
