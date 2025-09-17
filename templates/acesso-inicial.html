@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Acesso</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/acesso-inicial.css') }}">
+</head>
+<body>
+  <div class="container">
+    <!-- Exemplo: botão para rota home (se tiver outra página, ajuste aqui) -->
+    <button class="btn">
+      <a href="{{ url_for('tempo') }}">
+        <img src="{{ url_for('static', filename='scripts/imagens/3d-sun-and-cloud-white-3d-weather-element-png.png') }}" width="50px">
+      </a>
+    </button>
+
+    <!-- Botão para rota /conversao -->
+    <button class="btn">
+      <a href="{{ url_for('conversao') }}">
+        <img src="{{ url_for('static', filename='scripts/imagens/logo (1).png') }}" width="50px">
+      </a>
+    </button>
+  </div>
+</body>
+</html>

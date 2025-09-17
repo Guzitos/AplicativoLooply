@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weather Dashboard</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/pagina-tempo.css') }}" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Dashboard -->
+  <div class="dashboard">
+    <div class="search-box">
+      <form method="get" action="{{ url_for('tempo') }}" onsubmit="return validateForm()">
+        <input type="text" id="city-input" name="city" placeholder="Digite a cidade..." value="{{ weather.city if weather else '' }}" required />
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+
+    <div id="weather-info">
+      <div class="weather-icon">
+        {% if weather %}
+          <img src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="Ícone do clima" />
+        {% else %}
+          <i class="fas fa-cloud-sun"></i>
+        {% endif %}
+      </div>
+
+      <div class="temperature">
+        {% if weather %}
+          {{ weather.temperature }}°C
+        {% else %}
+          --°C
+        {% endif %}
+      </div>
+
+      <div class="description">
+        {% if weather %}
+          {{ weather.description }}
+        {% else %}
+          Clima
+        {% endif %}
+      </div>
+
+      <div class="details">
+        <div><i class="fas fa-tint"></i> <span id="humidity">{% if weather %}{{ weather.humidity }}%{% else %}--%{% endif %}</span></div>
+        <div><i class="fas fa-wind"></i> <span id="wind">{% if weather %}{{ weather.wind_speed }} km/h{% else %}-- km/h{% endif %}</span></div>
+      </div>
+
+      <!-- Gráfico de 7 dias -->
+      <div class="chart-container">
+        <canvas id="weeklyChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS externo -->
+  <script>
+    // Dados do backend para o gráfico
+    const forecastDays = {{ weather.forecast_days|tojson if weather else '[]' }};
+    const tempMax = {{ weather.forecast_max|tojson if weather else '[]' }};
+    const tempMin = {{ weather.forecast_min|tojson if weather else '[]' }};
+
+    // Função para validar o formulário (não enviar vazio)
+    function validateForm() {
+      const cityInput = document.getElementById('city-input').value.trim();
+      if (!cityInput) {
+        alert('Por favor, digite uma cidade.');
+        return false;
+      }
+      return true;
+    }
+
+    // Inicializar gráfico se houver dados
+    if (forecastDays.length > 0) {
+      const ctx = document.getElementById('weeklyChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: forecastDays,
+          datasets: [
+            {
+              label: 'Máx',
+              data: tempMax,
+              borderColor: '#FF5733',
+              backgroundColor: 'rgba(255,87,51,0.2)',
+              tension: 0.3
+            },
+            {
+              label: 'Mín',
+              data: tempMin,
+              borderColor: '#33C1FF',
+              backgroundColor: 'rgba(51,193,255,0.2)',
+              tension: 0.3
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+              labels: { color: '#fff' }
+            }
+          },
+          scales: {
+            x: {
+              ticks: { color: '#fff' },
+              grid: { color: 'rgba(255,255,255,0.1)' }
+            },
+            y: {
+              ticks: { color: '#fff' },
+              grid: { color: 'rgba(255,255,255,0.1)' }
+            }
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

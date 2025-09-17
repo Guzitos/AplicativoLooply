@@ -1,0 +1,5 @@
+requests
+Flask
+render_template
+request
+jsonify
