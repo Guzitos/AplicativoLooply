@@ -1,0 +1,36 @@
+      body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #1e1e2f;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Container central */
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px; /* Espaço entre os botões */
+      text-align: center;
+    }
+
+    /* Estilo dos botões */
+    .btn {
+      width: 300px;
+      height: 70px;
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #4a90e2;
+      color: white;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background: #357ab7;
+      transform: scale(1.05);
+    }
