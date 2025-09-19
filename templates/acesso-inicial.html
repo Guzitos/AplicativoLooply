@@ -7,18 +7,27 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/acesso-inicial.css') }}">
 </head>
 <body>
-  <div class="container">
-    <button class="btn">
+<main>
+    <h1 class="titulo">Acessar Projetos</h1>
+     <div class="container">
+    <div class="btn">
       <a href="{{ url_for('tempo') }}">
-        <img src="{{ url_for('static', filename='/imagens/img_sol.png') }}" width="50px">
+          <img src="{{ url_for('static', filename='/imagens/imagem-projeto-tempo.png') }}" width="100%">
+          <div class="overlay">
+              <span class="texto-projeto">Projeto Tempo</span>
+          </div>
       </a>
-    </button>
+    </div>
 
-    <button class="btn">
+    <div class="btn2">
       <a href="{{ url_for('conversao') }}">
-        <img src="{{ url_for('static', filename='/imagens/img_conversao.png') }}" width="50px">
+        <img src="{{ url_for('static', filename='/imagens/imagem-projeto-conversao.png') }}" width="100%">
+          <div class="overlay">
+            <span class="texto-projeto">Projeto Conversão</span>
+          </div>
       </a>
-    </button>
+    </div>
   </div>
+</main>
 </body>
 </html>

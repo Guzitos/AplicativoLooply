@@ -13,8 +13,22 @@ body {
   min-height: 100vh;
   padding: 20px;
   transition: background 0.5s ease;
-  background: linear-gradient(to right, #2c3e50, #4ca1af);
+  background: linear-gradient(to top, #2c3e50, #65d1e3);
 }
+.voltar{
+        position: absolute;
+        top: 2%;
+        left: 2%;
+    }
+    .voltar:hover{
+       width: 35px;
+    }
+    img:hover{
+        width: 35px;
+    }
+    img{
+        width: 30px;
+    }
 
 .dashboard {
   position: absolute;
@@ -25,7 +39,7 @@ body {
   background: rgba(28, 31, 39, 0.9);
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.596);
   display: flex;
   flex-direction: column;
   gap: 15px;

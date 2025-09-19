@@ -4,12 +4,26 @@
     }
     body {
       font-family: Arial, sans-serif;
-      background-image:linear-gradient(to bottom, #020091, #000000); ;
+      background: linear-gradient(175deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 0%, rgba(19, 237, 59, 1) 100%);
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
+    }
+    .voltar{
+        position: absolute;
+        top: 2%;
+        left: 2%;
+    }
+    .voltar:hover{
+       width: 35px;
+    }
+    img:hover{
+        width: 35px;
+    }
+    img{
+        width: 30px;
     }
     .container {
       background-color: white;
@@ -40,11 +54,11 @@
     }
     .exchange-rate {
       font-size: 14px;
-      color: #020091;
+      color: rgba(19, 237, 59, 1);
       margin-bottom: 15px;
     }
     .btn {
-      background-color: #020091;
+      background: rgba(1, 130, 65, 12);
       color: white;
       padding: 12px;
       font-size: 16px;
@@ -54,7 +68,7 @@
       cursor: pointer;
     }
     .btn:hover {
-      background-color: #0502c9;
+      background: rgba(1, 110, 65, 1) ;
     }
    
     #moedaPara{

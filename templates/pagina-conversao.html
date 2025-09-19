@@ -7,8 +7,9 @@
   <title>Conversão de Moedas</title>
 </head>
 <body>
+<a class="voltar" href="{{ url_for('home') }}"><img src="../static/imagens/ic-back_97586.png"></a>
   <div class="container">
-    <div class="title">Taxa de câmbio comercial</div>
+    <div class="title">Conversor De Moedas</div>
 
     {% if taxa %}
       <div class="exchange-rate" id="exchange-rate">Taxa: {{ taxa }}</div>
@@ -27,7 +28,7 @@
           <option value="GBP" {% if moedaDe == 'GBP' %}selected{% endif %}>GBP</option>
         </select>
 
-        <span class="para"> para </span>
+        <span class="para"> Para </span>
 
         <select id="moedaPara" name="moedaPara">
           <option value="BRL" {% if moedaPara == 'BRL' %}selected{% endif %}>BRL</option>
@@ -39,7 +40,7 @@
 
       <input type="text" id="result" placeholder="Resultado" disabled value="{{ resultado or '' }}" />
 
-      <button class="btn" type="submit">Enviar dinheiro</button>
+      <button class="btn" type="submit">Converter</button>
     </form>
   </div>
 </body>
